@@ -1,0 +1,61 @@
+=== TÓM TẮT CÁC BƯỚC (Bài 1 → Bài 9) ===
+
+(1) Tạo repository trên GitHub: tên 25174600031_Nguy-n_Kh-nh_Linh_bai_tap, init README.md.
+
+(2) Clone về máy:
+git clone https://github.com/yourusername/25174600031_Nguy-n_Kh-nh_Linh_bai_tap.git
+cd 25174600031_Nguy-n_Kh-nh_Linh_bai_tap
+
+(3) Bài 2: Sửa README.md với nội dung Lorem ipsum, rồi:
+git add README.md
+git commit -m "Bai 2: Update README.md"
+git push origin main
+
+(4) Bài 3: Tạo branch_1..4 từ main, tạo file tương ứng trên mỗi branch, commit, push:
+git checkout main
+git checkout -b branch_1
+echo "..." > text_branch_1.txt
+git add .
+git commit -m "Add text_branch_1"
+git push origin branch_1
+(vv cho branch_2, branch_3, branch_4)
+
+(5) Bài 4: Xóa branch_4 local:
+git checkout main
+git branch -d branch_4
+git branch --list
+git branch -r
+
+(6) Bài 5: Cập nhật local:
+git pull origin main
+
+(7) Bài 6: Tạo main_folder với 3 file, commit, push, merge main vào các branch:
+mkdir main_folder
+echo "..." > main_folder/main_txt_1.txt
+git add main_folder
+git commit -m "Add main_folder"
+git push origin main
+# Sau đó merge main vào branch_x: git checkout branch_x; git merge main; git push origin branch_x
+
+(8) Bài 7: Tạo branch_5 từ branch_1, chỉnh sửa text_branch_1.txt, push, PR -> branch_1, resolve conflict keep branch_5 content, xóa branch_5:
+git checkout branch_1
+git checkout -b branch_5
+# edit file
+git add .
+git commit -m "Update text_branch_1 in branch_5"
+git push origin branch_5
+# PR on GitHub: branch_5 -> branch_1; resolve conflict keep branch_5 content
+git push origin --delete branch_5   # delete remote
+git branch -d branch_5               # delete local
+
+(9) Bài 8: Merge all branches into main (ensure main has all text_branch_1..4 files). Use PRs or local merge, then push.
+
+(10) Bài 9: Delete branch_2, branch_3, branch_4 local & remote; merge main into branch_1:
+git branch -d branch_2
+git push origin --delete branch_2
+git checkout branch_1
+git merge origin/main
+git push origin branch_1
+
+(11) Bài 10: This file contains the steps above.
+
